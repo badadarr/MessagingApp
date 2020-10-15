@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="86dp"
         android:fontFamily="@font/mbold"
         android:text="@string/welcome"
         android:textColor="@android:color/black"
@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="328.99dp"
-        android:layout_height="214.51dp"
+        android:layout_width="329dp"
+        android:layout_height="214dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/undraw_friends_online"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,9 +33,9 @@
 
     <Button
         android:id="@+id/btn_welcome_sign_up"
-        android:layout_width="238dp"
+        android:layout_width="329dp"
         android:layout_height="58dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="74dp"
         android:background="@drawable/bg_btn_signup"
         android:fontFamily="@font/mbold"
         android:text="@string/signup"
@@ -50,9 +50,9 @@
 
     <Button
         android:id="@+id/btn_welcome_sign_in"
-        android:layout_width="238dp"
+        android:layout_width="329dp"
         android:layout_height="58dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_btn_signin"
         android:fontFamily="@font/mbold"
         android:text="@string/signin"

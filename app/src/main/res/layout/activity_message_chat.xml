@@ -24,13 +24,12 @@
                 android:id="@+id/profile_image_on_chat"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_person"/>
+                android:src="@drawable/ic_person" />
 
             <TextView
                 android:id="@+id/tv_username_on_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/edt_username_register"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:fontFamily="@font/msemibold"

@@ -44,8 +44,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     startActivity(
-                        Intent(this, MainActivity::class.java)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
+                        Intent(this, MainActivity::class.java))
                     finish()
                 } else {
                     showToast("error message : ${task.exception?.message.toString()}")

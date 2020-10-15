@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     val userHashMap = HashMap<String, Any> ()
                     userHashMap["uid"] = firebaseUserId
                     userHashMap["username"] = username
-                    userHashMap["profile"] = "https://firebasestorage.googleapis.com/v0/b/fir-cloudmessaging-41e26.appspot.com/o/ic_person_rectangle.png?alt=media&token=4b7a40de-a4a1-402d-b38f-34dbe7c6e023"
+                    userHashMap["profile"] = "https://firebasestorage.googleapis.com/v0/b/fir-cloudmessaging-41e26.appspot.com/o/ic_person_rectangle.png?alt=media&token=245ca190-bd78-40ad-ae2a-85b13c635704"
                     userHashMap["cover"] = "https://firebasestorage.googleapis.com/v0/b/fir-cloudmessaging-41e26.appspot.com/o/cover.png?alt=media&token=96b09046-55d1-449f-9dc6-bb8a9f67341a"
                     userHashMap["status"] = "not added yet"
                     userHashMap["search"] = username.toLowerCase()
@@ -65,9 +65,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     reference.updateChildren(userHashMap)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                startActivity(Intent(this, MainActivity::class.java)
-                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
-                                finish()
+                                startActivity(Intent(this, MainActivity::class.java))
                             }
                         }
 

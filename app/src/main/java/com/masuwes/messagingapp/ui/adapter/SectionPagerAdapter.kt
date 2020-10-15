@@ -5,7 +5,12 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 import com.masuwes.messagingapp.R
+import com.masuwes.messagingapp.model.Chat
+import com.masuwes.messagingapp.ui.Utils
 import com.masuwes.messagingapp.ui.fragment.ChatFragment
 import com.masuwes.messagingapp.ui.fragment.SearchFragment
 import com.masuwes.messagingapp.ui.fragment.ProfileFragment
@@ -20,6 +25,7 @@ class SectionPagerAdapter(private val context: Context, fragmentManager: Fragmen
         R.string.tab_profile
 
     )
+
 
     override fun getItem(position: Int): Fragment {
         var fragment : Fragment? = null
@@ -37,7 +43,6 @@ class SectionPagerAdapter(private val context: Context, fragmentManager: Fragmen
 
 
     override fun getCount(): Int = 3
-
 
 
 }

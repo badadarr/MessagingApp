@@ -67,19 +67,9 @@ class ChatAdapter(var context: Context, var chatList: List<Chat>, var imageUrl: 
             if (chat.isseen!!) {
                 holder.textSeen?.text = context.resources.getString(R.string.seen)
 
-                if (chat.message == "sent you an image" && !chat.url.isNullOrEmpty()) {
-                    val lp = holder.textSeen?.layoutParams as ConstraintLayout.LayoutParams
-                    lp.setMargins(0, 245, 10, 0)
-                    holder.textSeen.layoutParams = lp
-                }
             } else {
                 holder.textSeen?.text = context.resources.getString(R.string.sent)
 
-                if (chat.message == "sent you an image" && !chat.url.isNullOrEmpty()) {
-                    val lp = holder.textSeen?.layoutParams as ConstraintLayout.LayoutParams
-                    lp.setMargins(0, 245, 10, 0)
-                    holder.textSeen.layoutParams = lp
-                }
             }
         } else {
             holder.textSeen?.visibility = View.GONE

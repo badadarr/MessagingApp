@@ -30,7 +30,6 @@
                 android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/edt_username_register"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:fontFamily="@font/msemibold"

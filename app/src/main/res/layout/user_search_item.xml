@@ -20,7 +20,7 @@
             android:id="@+id/friend_profile_pict"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/profile_pict"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

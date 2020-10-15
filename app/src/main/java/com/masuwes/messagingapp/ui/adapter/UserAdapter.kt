@@ -31,7 +31,6 @@ class UserAdapter(
         )
 
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = users[position]
         holder.bind(data)
@@ -46,9 +45,8 @@ class UserAdapter(
             builder.setTitle("Choose action")
             builder.setItems(options, DialogInterface.OnClickListener { dialog, position ->
                 if (position == 0) {
-                    val intent = Intent(context, MessageChatActivity::class.java)
-                    intent.putExtra(Utils.PACKAGE, data.uid)
-                    context.startActivity(intent)
+                    context.startActivity(Intent(context, MessageChatActivity::class.java)
+                        .putExtra(Utils.PACKAGE, data.uid))
                 }
                 else if (position == 1) {
 
