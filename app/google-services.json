@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "94227509165",
+    "firebase_url": "https://fir-cloudmessaging-41e26.firebaseio.com",
+    "project_id": "fir-cloudmessaging-41e26",
+    "storage_bucket": "fir-cloudmessaging-41e26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94227509165:android:0299ff5bfc76418d22bb24",
+        "android_client_info": {
+          "package_name": "com.masuwes.firebasecloudmessaging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94227509165-ie00smof2q1ldgp4g5c5bmkq4ff1vu7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK21tKeiYnN8IEqdRGORTcYPk7iLA97UU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94227509165-ie00smof2q1ldgp4g5c5bmkq4ff1vu7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94227509165:android:fa1001509e65ed4722bb24",
+        "android_client_info": {
+          "package_name": "com.masuwes.messagingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94227509165-bpnlmdppki0kqs256e5l255t40rapq1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.masuwes.messagingapp",
+            "certificate_hash": "3d362bac060a00d76d1974658f313960856d45a6"
+          }
+        },
+        {
+          "client_id": "94227509165-ie00smof2q1ldgp4g5c5bmkq4ff1vu7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK21tKeiYnN8IEqdRGORTcYPk7iLA97UU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94227509165-ie00smof2q1ldgp4g5c5bmkq4ff1vu7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

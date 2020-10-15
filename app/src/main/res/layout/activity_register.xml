@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.LoginActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        android:layout_margin="16dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="26dp">
+
+                <TextView
+                    android:id="@+id/tv_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup"
+                    android:drawableStart="@drawable/ic_baseline_arrow_back"
+                    android:drawablePadding="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/mbold"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:id="@+id/edt_email_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_register"
+                    android:layout_marginTop="35dp"
+                    android:maxLines="1"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/mmedium"
+                    android:hint="@string/edt_email_login"/>
+
+                <EditText
+                    android:id="@+id/edt_username_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edt_email_register"
+                    android:layout_marginTop="15dp"
+                    android:maxLines="1"
+                    android:fontFamily="@font/mmedium"
+                    android:hint="@string/edt_username_register"/>
+
+                <EditText
+                    android:id="@+id/edt_password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edt_username_register"
+                    android:layout_marginTop="15dp"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/mmedium"
+                    android:hint="@string/edt_password_login"/>
+
+                <Button
+                    android:id="@+id/btn_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edt_password_register"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/bg_btn_signin"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/mbold"
+                    android:text="@string/signup"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

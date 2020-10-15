@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/friend_profile_left"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_person" />
+
+        <TextView
+            android:id="@+id/show_text_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/friend_profile_left"
+            android:background="@drawable/bg_btn_signin"
+            android:fontFamily="@font/mmedium"
+            android:padding="10dp"
+            android:text="@string/edt_username_register"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_seen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/seen"
+            android:fontFamily="@font/mregular"
+            android:layout_marginStart="95dp"
+            android:layout_toEndOf="@id/image_view_left"
+            android:layout_below="@id/show_text_message"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_view_left"
+            android:layout_width="174dp"
+            android:layout_height="174dp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/friend_profile_left"
+            android:visibility="gone"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MessagingApp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_chat">Chats</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_settings">Settings</string>
+    <string name="login">Login</string>
+    <string name="edt_email_login">Email</string>
+    <string name="edt_password_login">Password</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="edt_username_register">Username</string>
+    <string name="welcome">Welcome !</string>
+    <string name="signout">Sign Out</string>
+    <string name="profile_pict">Profile Picture</string>
+    <string name="search">Search Friend...</string>
+    <string name="tab_profile">Profile</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="seen">Seen</string>
+    <string name="sent">Sent</string>
+</resources>
