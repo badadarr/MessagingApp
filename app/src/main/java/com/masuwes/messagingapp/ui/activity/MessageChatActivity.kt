@@ -65,7 +65,7 @@ class MessageChatActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                showToast("Error message : $error")
             }
 
         })
@@ -125,7 +125,7 @@ class MessageChatActivity : AppCompatActivity() {
                         }
 
                         override fun onCancelled(error: DatabaseError) {
-                            TODO("Not yet implemented")
+                            showToast("Error message : $error")
                         }
 
                     })
@@ -203,11 +203,15 @@ class MessageChatActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                showToast("Error message : $error")
             }
 
         })
 
+    }
+
+    private fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
 }

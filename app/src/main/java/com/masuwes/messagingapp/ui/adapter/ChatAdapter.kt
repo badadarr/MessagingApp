@@ -37,7 +37,7 @@ class ChatAdapter(var context: Context, var chatList: List<Chat>, var imageUrl: 
 
         Picasso.get().load(imageUrl).into(holder.profileImage)
 
-        // image message
+        // image message - right side
         if (chat.message.equals("sent you an image") && !chat.url.equals("")) {
             // image message - right side
             if (chat.sender.equals(firebaseUser.uid)) {
