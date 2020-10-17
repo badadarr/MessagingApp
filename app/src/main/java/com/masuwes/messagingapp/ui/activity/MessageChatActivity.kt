@@ -15,10 +15,14 @@ import com.google.firebase.storage.StorageTask
 import com.masuwes.messagingapp.R
 import com.masuwes.messagingapp.model.Chat
 import com.masuwes.messagingapp.model.Users
+import com.masuwes.messagingapp.notification.*
 import com.masuwes.messagingapp.ui.Utils
 import com.masuwes.messagingapp.ui.adapter.ChatAdapter
+import com.masuwes.messagingapp.ui.showToast
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_message_chat.*
+import retrofit2.Call
+import retrofit2.Callback
 
 class MessageChatActivity : AppCompatActivity() {
 
@@ -28,6 +32,8 @@ class MessageChatActivity : AppCompatActivity() {
     private var chatList = arrayListOf<Chat>()
     private lateinit var recyclerView: RecyclerView
     private lateinit var reference: DatabaseReference
+    private var notify = false
+    private lateinit var apiService: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +44,7 @@ class MessageChatActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
 
+        apiService = Client.Client.getClient("https://fcm.googleapis.com/").create(ApiService::class.java)
 
         recyclerView = findViewById(R.id.rv_chat)
         recyclerView.apply {
@@ -73,6 +80,7 @@ class MessageChatActivity : AppCompatActivity() {
         })
 
         btn_send.setOnClickListener {
+            notify = true
             val message = edt_chat_box.text.toString()
             if (message.isBlank()) {
                 Toast.makeText(this, "Write message first", Toast.LENGTH_SHORT).show()
@@ -83,6 +91,7 @@ class MessageChatActivity : AppCompatActivity() {
         }
 
         add_media.setOnClickListener {
+            notify = true
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
@@ -135,12 +144,75 @@ class MessageChatActivity : AppCompatActivity() {
                     })
 
 
-                    // implement fcm notification
-
-
-
                 }
             }
+
+        // implement fcm notification
+        val userReference = FirebaseDatabase.getInstance().reference
+            .child(Utils.USER_TABLE).child(firebaseUser!!.uid)
+
+        userReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(Users::class.java)
+                if (notify) {
+                    sendNotification(receiverId, user?.username, message)
+                }
+                notify = false
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun sendNotification(receiverId: String?, username: String?, message: String) {
+
+        val ref = FirebaseDatabase.getInstance().reference.child(Utils.TOKENS_TABLE)
+        val query = ref.orderByKey().equalTo(receiverId)
+
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val token = dataSnapshot.getValue(Token::class.java)
+
+                    val data = Data(
+                        firebaseUser?.uid,
+                        R.mipmap.ic_launcher,
+                        "$username: $message",
+                        "New Message",
+                        userVisitId
+                    )
+
+                    val sender = Sender(data, token?.token.toString())
+
+                    apiService.sendNotification(sender)
+                        .enqueue(object : Callback<Response> {
+                            override fun onResponse(
+                                call: Call<Response>,
+                                response: retrofit2.Response<Response>
+                            ) {
+                                if (response.code() == 200) {
+                                    if(response.body()?.success != 1) {
+                                        showToast("Failed, Nothing happen")
+                                    }
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Response>, t: Throwable) {
+                                TODO("Not yet implemented")
+                            }
+
+                        })
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -181,8 +253,30 @@ class MessageChatActivity : AppCompatActivity() {
                     messageHashMap["messageId"] = messageId
 
                     ref.child(Utils.CHATS_TABLE).child(messageId!!).setValue(messageHashMap)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                progressDialog.dismiss()
 
-                    progressDialog.dismiss()
+                                // implement fcm notification
+                                val userReference = FirebaseDatabase.getInstance().reference
+                                    .child(Utils.USER_TABLE).child(firebaseUser!!.uid)
+
+                                userReference.addValueEventListener(object : ValueEventListener {
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        val user = snapshot.getValue(Users::class.java)
+                                        if (notify) {
+                                            sendNotification(userVisitId, user?.username, "sent you an image")
+                                        }
+                                        notify = false
+                                    }
+
+                                    override fun onCancelled(error: DatabaseError) {
+                                        TODO("Not yet implemented")
+                                    }
+
+                                })
+                            }
+                        }
                 }
             }
         }
@@ -236,10 +330,6 @@ class MessageChatActivity : AppCompatActivity() {
 
         })
 
-    }
-
-    private fun showToast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

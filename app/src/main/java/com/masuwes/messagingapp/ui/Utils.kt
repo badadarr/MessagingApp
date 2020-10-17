@@ -11,4 +11,13 @@ object Utils {
     const val CHATS_TABLE = "Chats"
     const val CHAT_IMAGE_TABLE = "Chat Images"
     const val CHAT_LIST = "ChatList"
+    const val TOKENS_TABLE = "Tokens"
+}
+
+fun Context.showToast(msg: String) {
+    Toast.makeText(
+        this,
+        msg,
+        Toast.LENGTH_LONG
+    ).show()
 }

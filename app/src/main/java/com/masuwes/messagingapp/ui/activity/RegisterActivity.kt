@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.masuwes.messagingapp.R
 import com.masuwes.messagingapp.ui.Utils
+import com.masuwes.messagingapp.ui.showToast
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
@@ -76,9 +77,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun showToast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
-    }
 }
 
 

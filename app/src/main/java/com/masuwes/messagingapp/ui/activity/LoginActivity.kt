@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.masuwes.messagingapp.R
+import com.masuwes.messagingapp.ui.showToast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -52,9 +53,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
     }
 
-    private fun showToast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
 }
 
 

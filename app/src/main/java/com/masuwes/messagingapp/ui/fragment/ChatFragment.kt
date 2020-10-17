@@ -14,9 +14,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.masuwes.messagingapp.R
 import com.masuwes.messagingapp.model.ChatList
 import com.masuwes.messagingapp.model.Users
+import com.masuwes.messagingapp.notification.Token
 import com.masuwes.messagingapp.ui.Utils
 import com.masuwes.messagingapp.ui.adapter.UserAdapter
 import kotlinx.android.synthetic.main.fragment_chat.*
@@ -67,7 +69,14 @@ class ChatFragment : Fragment() {
 
             })
 
+        updateToken(FirebaseInstanceId.getInstance().token)
 
+    }
+
+    private fun updateToken(token: String?) {
+        val ref = FirebaseDatabase.getInstance().reference.child(Utils.TOKENS_TABLE)
+        val mToken = Token(token)
+        ref.child(firebaseUser.uid).setValue(mToken)
     }
 
     private fun retrieveChatList() {
